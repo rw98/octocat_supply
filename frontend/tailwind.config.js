@@ -31,8 +31,8 @@ export default {
       },
       keyframes: {
         'trex-walk': {
-          '0%': { transform: 'translateX(-100px)' },
-          '100%': { transform: 'translateX(calc(100vw + 100px))' },
+          '0%': { transform: 'translateX(calc(100vw + 100px))' },
+          '100%': { transform: 'translateX(-100px)' },
         },
         'trex-step': {
           '0%, 100%': { transform: 'rotate(0deg)' },

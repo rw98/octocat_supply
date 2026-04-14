@@ -41,12 +41,6 @@ describe('TRexWalker', () => {
     expect(inner).toBeInTheDocument();
   });
 
-  it('is flipped horizontally', () => {
-    renderWithTheme(<TRexWalker />);
-    const flipped = screen.getByText('🦖').closest('[style]');
-    expect(flipped).toHaveStyle({ transform: 'scaleX(-1)' });
-  });
-
   it('calls onComplete and removes itself after 3 seconds', () => {
     const onComplete = vi.fn();
     renderWithTheme(<TRexWalker onComplete={onComplete} />);
