@@ -24,9 +24,9 @@ export default function TRexWalker({ onComplete }: TRexWalkerProps) {
       className="fixed bottom-8 left-0 z-50 pointer-events-none animate-trex-walk motion-reduce:hidden"
       aria-hidden="true"
     >
-      <div className="animate-trex-step">
+      <div className="animate-trex-step" style={{ transform: 'scaleX(-1)' }}>
         <span
-          className={`text-6xl select-none ${
+          className={`text-9xl select-none ${
             darkMode
               ? 'drop-shadow-[0_0_8px_rgba(118,184,82,0.6)]'
               : 'drop-shadow-[0_0_8px_rgba(0,0,0,0.3)]'
