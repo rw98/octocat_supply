@@ -28,7 +28,22 @@ export default {
       },
       width: {
         '7/8': '87.5%'
-      }
+      },
+      keyframes: {
+        'trex-walk': {
+          '0%': { transform: 'translateX(-100px)' },
+          '100%': { transform: 'translateX(calc(100vw + 100px))' },
+        },
+        'trex-step': {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(-8deg)' },
+          '75%': { transform: 'rotate(8deg)' },
+        },
+      },
+      animation: {
+        'trex-walk': 'trex-walk 3s linear forwards',
+        'trex-step': 'trex-step 0.3s ease-in-out infinite',
+      },
     },
   },
   plugins: [],

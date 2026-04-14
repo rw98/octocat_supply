@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 import { api } from '../../../api/config';
 import { useTheme } from '../../../context/ThemeContext';
+import TRexWalker from '../../TRexWalker';
 
 interface Product {
   productId: number;
@@ -26,6 +27,8 @@ export default function Products() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const [showTRex, setShowTRex] = useState(false);
+  const [trexKey, setTrexKey] = useState(0);
   const { data: products, isLoading, error } = useQuery('products', fetchProducts);
   const { darkMode } = useTheme();
 
@@ -53,7 +56,8 @@ export default function Products() {
     const quantity = quantities[productId] || 0;
     if (quantity > 0) {
       // TODO: Implement cart functionality
-      alert(`Added ${quantity} items to cart`);
+      setShowTRex(true);
+      setTrexKey((prev) => prev + 1);
       setQuantities((prev) => ({
         ...prev,
         [productId]: 0,
@@ -256,6 +260,8 @@ export default function Products() {
           </div>
         </div>
       </div>
+
+      {showTRex && <TRexWalker key={trexKey} onComplete={() => setShowTRex(false)} />}
 
       {/* Product Modal */}
       {showModal && selectedProduct && (
